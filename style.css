@@ -8,3 +8,10 @@
   float: right;
   clear: right;
 }
+
+.quiz {
+  background-color: #d8760d;
+  color: #e0e3e5;
+  width: 500px;
+  border-radius: 20px;
+}
