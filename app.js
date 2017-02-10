@@ -45,40 +45,45 @@ var incorrectAnswers = [
 
 var answerCount = 0;
 
+fiveQuestions();
+
+function fiveQuestions(){
+
+  for (var i = 0; i < quizResponses.length; i++) {
+    flag = false;
+    /*Lesson learned: Previously, I put the prompts inside of the quizResponses array. I
+    also attempted to put the prompt at the beginning of the for loop. What the loop would end up doing
+    is getting the values of each prompt, storing them in the array, then checking the statements. The code below
+    will store the input into the variable, then continue the script correctly.*/
+    var newResponse = prompt(quizResponses[i]);
+    if (newResponse.toUpperCase() === 'Y' || newResponse.toUpperCase() === 'YES') {
+      flag = true;
+      if (i === 0 || i === 2 || i === 4) {
+        console.log(incorrectAnswers[i]);
+        document.write('<ul><li> Incorrect. ' + incorrectAnswers[i] + '</li></ul>');
+      } else {
+        console.log(correctAnswers[i]);
+        document.write('<ul><li> Correct. ' + correctAnswers[i] + '</li></ul>');
+        answerCount++;
+      }
+      //If no, then log either the correct or incorrect answer to the console and write it to the HTML doc.
+    } else if (newResponse.toUpperCase() === 'N' || newResponse.toUpperCase() === 'NO') {
+      flag = true;
+      if (i === 1 || i === 3) {
+        console.log(incorrectAnswers[i]);
+        document.write('<ul><li> Incorrect. ' + incorrectAnswers[i] + '</li></ul>');
+      } else {
+        console.log(correctAnswers[i]);
+        document.write('<ul><li> Correct. ' + correctAnswers[i] + '</li></ul>');
+        answerCount++;
+      }
+    } else {
+      alert('I AM A ROBOT. INVALID RESPONSE.');
+      i--;
+    }
+  };
+}
 //Loop for the quiz. This is not very robust, as I can't figure out how to interrupt the for loop for an invalid response.
-for (var i = 0; i < quizResponses.length; i++) {
-  flag = false;
-/*Lesson learned: Previously, I put the prompts inside of the quizResponses array. I
-also attempted to put the prompt at the beginning of the for loop. What the loop would end up doing
-is getting the values of each prompt, storing them in the array, then checking the statements. The code below
-will store the input into the variable, then continue the script correctly.*/
-  var newResponse = prompt(quizResponses[i]);
-  if (newResponse.toUpperCase() === 'Y' || newResponse.toUpperCase() === 'YES') {
-    flag = true;
-    if (i === 0 || i === 2 || i === 4) {
-      console.log(incorrectAnswers[i]);
-      document.write('<ul><li> Incorrect. ' + incorrectAnswers[i] + '</li></ul>');
-    } else {
-      console.log(correctAnswers[i]);
-      document.write('<ul><li> Correct. ' + correctAnswers[i] + '</li></ul>');
-      answerCount++;
-    }
-    //If no, then log either the correct or incorrect answer to the console and write it to the HTML doc.
-  } else if (newResponse.toUpperCase() === 'N' || newResponse.toUpperCase() === 'NO') {
-    flag = true;
-    if (i === 1 || i === 3) {
-      console.log(incorrectAnswers[i]);
-      document.write('<ul><li> Incorrect. ' + incorrectAnswers[i] + '</li></ul>');
-    } else {
-      console.log(correctAnswers[i]);
-      document.write('<ul><li> Correct. ' + correctAnswers[i] + '</li></ul>');
-      answerCount++;
-    }
-  } else {
-    alert('I AM A ROBOT. INVALID RESPONSE.');
-    i--;
-  }
-};
 //Write the results of the quiz to the console.
 document.write('<p>You got ' + answerCount + '/5 correct!</p>');
 
@@ -87,6 +92,9 @@ document.write('<p>You got ' + answerCount + '/5 correct!</p>');
 //ADD CONSOLE FEEDBACK TO SEE THE RANDOM NUMBER THAT WAS GENERATED.
 if (answerCount === 5) {
   alert('Good job! You get two bonus questions!');
+  numQuestionGame();
+};
+function numQuestionGame() {
 
   var randomNum = Math.floor(Math.random() * 10 + 1);
   var guessNumCount = 0;
@@ -108,7 +116,7 @@ if (answerCount === 5) {
       console.log('Better luck next time!');
     }
   }
-};
+}
 //^^^^^WRITE RESULTS TO WEBSITE AND WHAT THE NUMBER WAS.
 
 //CORRECT STATEMENT ABOUT GETTING TWO BONUS QUESTIONS.
@@ -116,7 +124,9 @@ if (answerCount === 5) {
 if (answerCount === 6) {
   alert('You\'ve answered a shit ton of answers correctly. Here is the last bonus question.');
   alert('Guess a state Kurt has lived in. You get six guesses.');
-
+  statesQuestion();
+}
+function statesQuestion() {
   var statesLivedIn = ['Alabama', 'Florida', 'South Carolina', 'Washington', 'New York', 'Connecticut'];
   var statesGuessesLeft = 5;
   var maxGuesses = 6;
