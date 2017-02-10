@@ -1,5 +1,10 @@
 * {
-  color: #a09f9d;
+  color: #e0e3e5;
   font-family: arial;
-  background-color: #576987;
+  background-color: #306ea0;
+}
+
+.image {
+  float: right;
+  clear: right;
 }
