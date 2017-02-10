@@ -5,42 +5,43 @@ var confirmQuiz = confirm('Welcome! Would you like to take a quiz about Kurt?');
 //CONSIDER ADDING CONSOLELOGS TO PROVIDE FEEDBACK TO DEVELOPER.
 
 if(confirmQuiz){
+  alert('Great! Let\'s get started!');
   console.log('Great! Let\'s get started!');
 } else {
+  alert('Okay. First, please answer the following questions to exit the quiz.');
   console.log('Okay. First, please answer the following questions to exit the quiz.');
 }
 
 //User input stored in array.
-var quizResponses = new Array (
-'Please answer the following questions with Y or N. Does Kurt live in Wallingford?',
-'Was Kurt a submariner?',
-'Did Kurt see a lot when looking out of the windows on the submarine?',
-'Did Kurt get to shoot any missiles from his submarine?',
-'Is Kurt from Seattle?'
-);
-//^^TAKE QUESTIONS AND MAKE THEM VARIABLES. REMOVE PROMPT.
+var quizResponses = [
+  'Please answer the following questions with Y or N. Does Kurt live in Wallingford?',
+  'Was Kurt a submariner?',
+  'Did Kurt see a lot when looking out of the windows on the submarine?',
+  'Did Kurt get to shoot any missiles from his submarine?',
+  'Is Kurt from Seattle?'
+];
 
 //INSERT A LIST OF CORRECT ANSWER VARIABLES HERE. THEN INSERT THOSE ANSWERS INTO AN ARRAY.
 
 //All correct FEEDBACK to the user's input.
-var correctAnswers = new Array (
+var correctAnswers = [
   //^^CHANGE TO FEEDBACK AND MAKE EACH ONE A VARIABLE
-'Fremont is awesome.',
-'Kurt was on the USS Kentucky.',
-'Kurt said there aren\'t any windows on submarines!',
-'Fuck yea he did!',
-'He\'s from Alabama.'
-);
+  'Fremont is awesome.',
+  'Kurt was on the USS Kentucky.',
+  'Kurt said there aren\'t any windows on submarines!',
+  'Fuck yea he did!',
+  'He\'s from Alabama.'
+];
 
 //All incorrect responses to the user's input.
-var incorrectAnswers = new Array (
+var incorrectAnswers = [
   //^^CHANGE TO FEEDBACK. MAKE EACH FEEDBACK STATEMENT A VARIABLE
-'Yikes! Actually, Kurt lives in Fremont.',
-'Actually, Kurt was a submariner on the USS Kentucky.',
-'Oh no! Remember, there are no windows on submarines.',
-'Actually, Kurt got to shoot two test missiles while he was on board.',
-'He loves Seattle but grew up in Auburn, AL.'
-);
+  'Yikes! Actually, Kurt lives in Fremont.',
+  'Actually, Kurt was a submariner on the USS Kentucky.',
+  'Oh no! Remember, there are no windows on submarines.',
+  'Actually, Kurt got to shoot two test missiles while he was on board.',
+  'He loves Seattle but grew up in Auburn, AL.'
+];
 
 var answerCount = 0;
 
