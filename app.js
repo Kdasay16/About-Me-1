@@ -73,7 +73,7 @@ will store the input into the variable, then continue the script correctly.*/
       document.write('<ul><li> Correct. ' + correctAnswers[i] + '</li></ul>');
       answerCount++;
     }
-  } else if (flag === false) {
+  } else {
     alert('I AM A ROBOT. INVALID RESPONSE.');
     i--;
   }
@@ -94,7 +94,7 @@ if (answerCount === 5) {
   while (guessNumCount < 4) {
     var numberQuestion = prompt('What number am I thinking of?');
     if (parseInt(numberQuestion) === randomNum) {
-      console.log('Nice job! The number was ' + randomNum + '!');
+      alert('Nice job! The number was ' + randomNum + '!');
       answerCount++;
       break;
     } else if (parseInt(numberQuestion) > randomNum) {
